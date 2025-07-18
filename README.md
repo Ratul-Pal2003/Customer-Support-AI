@@ -55,9 +55,9 @@ pip install -r requirements.txt
 
 4. **Setup environment variables**
 
-Create a .env file in the root folder.
+- Create a .env file in the root folder.
 
-Copy values from .env.example and insert your own credentials.
+- Copy values from .env.example and insert your own credentials.
 
 5. **Run the app Locally**
 ```bash
