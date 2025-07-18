@@ -16,6 +16,8 @@ processed_texts = set()
 processed_lock = threading.Lock()
 
 def transcribe_buffer(audio_buffer):
+    import streamlit as st  # Import here to avoid circular import issues
+
     with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as f:
         filename = f.name
         wav.write(filename, SAMPLE_RATE, (audio_buffer * 32767).astype(np.int16))
@@ -33,6 +35,11 @@ def transcribe_buffer(audio_buffer):
             processed_texts.add(text)
 
         print(f"\n📝 [{segment.start:.1f}s - {segment.end:.1f}s] {text}")
+
+        # 💡 Update transcript for Streamlit UI
+        st.session_state["live_transcript"] = text
+
+        # Proceed with intent + rag
         detect_intent_and_rag(text)
 
     os.remove(filename)
