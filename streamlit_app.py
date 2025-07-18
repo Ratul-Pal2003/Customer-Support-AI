@@ -22,6 +22,28 @@ if "transcript_history" not in st.session_state:
 
 transcript_q = queue.Queue()
 
+# Transcript display
+st.markdown("### 📝 Live Transcript")
+transcript_placeholder = st.empty()
+
+st.markdown("### 📜 Transcript History")
+history_box = st.container()
+
+# ✅ Move this up so it’s defined before use
+def update_transcript_loop(q):
+    while st.session_state.get("started", False):
+        try:
+            text = q.get(timeout=1)
+            if text:
+                st.session_state.live_transcript = text
+                if len(st.session_state.transcript_history) == 0 or text != st.session_state.transcript_history[-1]:
+                    st.session_state.transcript_history.append(text)
+                transcript_placeholder.write(f"**{text}**")
+                with history_box:
+                    st.markdown("\n".join(f"- {line}" for line in st.session_state.transcript_history[-15:]))
+        except queue.Empty:
+            continue
+
 # UI Controls
 col1, col2 = st.columns(2)
 
@@ -40,27 +62,6 @@ with col2:
             st.session_state.started = False
             stop_audio_stream()
             st.warning("Assistant stopped.")
-
-# Transcript display
-st.markdown("### 📝 Live Transcript")
-transcript_placeholder = st.empty()
-
-st.markdown("### 📜 Transcript History")
-history_box = st.container()
-
-def update_transcript_loop(q):
-    while st.session_state.get("started", False):
-        try:
-            text = q.get(timeout=1)
-            if text:
-                st.session_state.live_transcript = text
-                if len(st.session_state.transcript_history) == 0 or text != st.session_state.transcript_history[-1]:
-                    st.session_state.transcript_history.append(text)
-                transcript_placeholder.write(f"**{text}**")
-                with history_box:
-                    st.markdown("\n".join(f"- {line}" for line in st.session_state.transcript_history[-15:]))
-        except queue.Empty:
-            continue
 
 # Intents
 st.markdown("#### 📚 Supported Intents")
