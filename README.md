@@ -8,7 +8,6 @@ This project demonstrates a real-time AI assistant designed to support human age
 - 🧠 Intent detection using HuggingFace NLI models
 - 🔎 RAG (Retrieval-Augmented Generation) to fetch KB answers
 - 🗣️ AI Voice responses using Edge-TTS
-- 💬 Agent Assist UI using Streamlit
 - 📦 Modular backend codebase (Python)
 
 ## 🗂 Project Structure
@@ -36,8 +35,8 @@ AI PRJ/
 
 1. **Clone the Repository**
 ```bash
-   git clone https://github.com/your-username/your-repo-name.git
-   cd your-repo-name
+   git clone https://github.com/Ratul-Pal2003/Customer-Support-AI.git
+   cd Customer-Support-AI
 ```
 
 2. **Create and Activate Virtual environment**
@@ -59,10 +58,7 @@ pip install -r requirements.txt
 
 - Copy values from .env.example and insert your own credentials.
 
-5. **Run the app Locally**
-```bash
-streamlit run streamlit_app.py
-```
+
 
 ## Requirements
 
@@ -72,10 +68,9 @@ streamlit run streamlit_app.py
 
 - Hugging Face API key
 
-- Mistral (via Together API or HF Inference)
+- Mistral (via HF Inference)
 
 6. **Environment Variables**
 ```bash
 HF_API_KEY=your_huggingface_key
-TOGETHER_API_KEY=your_together_api_key
 ```
