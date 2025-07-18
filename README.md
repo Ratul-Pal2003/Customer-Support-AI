@@ -12,7 +12,7 @@ This project demonstrates a real-time AI assistant designed to support human age
 - 📦 Modular backend codebase (Python)
 
 ## 🗂 Project Structure
-
+```bash
 AI PRJ/
 ├── assistant/
 │ ├── audio.py
@@ -30,24 +30,28 @@ AI PRJ/
 ├── README.md
 ├── .gitignore
 └── venv/ (ignored)
-
+```
 
 ## ⚙️ Setup Instructions
 
 1. **Clone the Repository**
-
+```bash
    git clone https://github.com/your-username/your-repo-name.git
    cd your-repo-name
+```
 
 2. **Create and Activate Virtual environment**
 
+```bash
 python -m venv venv
 source venv/bin/activate       # macOS/Linux
 .\venv\Scripts\activate        # Windows
+```
 
 3. **Install Dependencies**
-
+```bash
 pip install -r requirements.txt
+```
 
 4. **Setup environment variables**
 
@@ -56,21 +60,22 @@ Create a .env file in the root folder.
 Copy values from .env.example and insert your own credentials.
 
 5. **Run the app Locally**
-
+```bash
 streamlit run streamlit_app.py
+```
 
+## Requirements
 
-6. **Requirements**
+- Python 3.10+
 
-Python 3.10+
+- FFmpeg installed and added to PATH
 
-FFmpeg installed and added to PATH
+- Hugging Face API key
 
-Hugging Face API key
-
-Mistral (via Together API or HF Inference)
+- Mistral (via Together API or HF Inference)
 
 6. **Environment Variables**
-
+```bash
 HF_API_KEY=your_huggingface_key
 TOGETHER_API_KEY=your_together_api_key
+```
