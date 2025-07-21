@@ -45,4 +45,4 @@ def detect_intent_and_rag(transcript):
         context = faq["answer"]
         rag_q.put((transcript, context, top_score))
     else:
-        print("❓ No matching FAQ found. Escalate or ask to rephrase.")
+        print("❓ No matching FAQ found. Try asking differently or connect with a human agent.")

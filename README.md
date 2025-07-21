@@ -74,3 +74,8 @@ pip install -r requirements.txt
 ```bash
 HF_API_KEY=your_huggingface_key
 ```
+## Technical Challenges faced
+
+The link below contains the documentation of all the technical challenges I faced while making the project:
+
+https://docs.google.com/document/d/1C3GQgJS5JQQTl7wfp6CMxniwBF92Ddpff_XAttFRktc/edit?usp=sharing
